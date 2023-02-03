@@ -17,9 +17,9 @@ class Login extends React.Component {
   };
 
   handleSubmit = () => {
-    const { email, password } = this.state;
+    const { email } = this.state;
     const { history, dispatch } = this.props;
-    dispatch(userLogin(email, password));
+    dispatch(userLogin(email));
     history.push('/carteira');
   };
 
