@@ -37,9 +37,10 @@ class Login extends React.Component {
     const { password, email, disable } = this.state;
     return (
       <form className="Formlogin">
-        <label htmlFor="userName" className="userName">
+        <label htmlFor="userName" className="user">
           Email
           <input
+            id="userName"
             type="text"
             data-testid="email-input"
             onChange={ this.handleChange }
@@ -47,9 +48,10 @@ class Login extends React.Component {
             value={ email }
           />
         </label>
-        <label htmlFor="userPassword" className="userPassword">
+        <label htmlFor="userPassword" className="user">
           Senha
           <input
+            id="userPassword"
             type="text"
             data-testid="password-input"
             onChange={ this.handleChange }
