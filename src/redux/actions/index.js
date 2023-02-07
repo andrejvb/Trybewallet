@@ -7,7 +7,7 @@ export const userLogin = (email) => ({
   payload: email,
 });
 
-export const currency = (coins) => ({
+export const saveCurrency = (coins) => ({
   type: CURRENCY,
   payload: coins.filter((coin) => coin !== 'USDT'),
 });
