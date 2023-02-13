@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import fetchCurrency from '../services/api';
-import { saveCurrency } from '../redux/actions';
+import { startFetchCurrency, startFetchRate } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
+    id: 0,
     value: '',
     description: '',
     currency: 'USD',
@@ -13,20 +13,23 @@ class WalletForm extends Component {
     tag: 'Alimentação',
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const { dispatch } = this.props;
-    const coins = Object.keys(await fetchCurrency());
-    dispatch(saveCurrency(coins));
+    dispatch(startFetchCurrency(this.state));
   }
 
-  handleChange({ target }) {
+  handleChange = ({ target }) => {
     const { name, value } = target;
+    console.log(name, value);
     this.setState({ [name]: value });
-  }
+  };
 
   submitExpenses = () => {
     const { dispatch } = this.props;
-    dispatch(...this.state);
+    this.setState((prev) => ({
+      id: prev.id + 1,
+    }));
+    dispatch(startFetchRate(this.state));
     this.setState({
       value: '',
       description: '',
@@ -42,11 +45,11 @@ class WalletForm extends Component {
 
     return (
       <form>
-        <label htmlFor="value">
+        <label htmlFor="value-a">
           Valor:
           <input
             type="text"
-            id="value"
+            id="value-a"
             name="value"
             data-testid="value-input"
             value={ value }
@@ -116,7 +119,7 @@ WalletForm.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currencies: state.wallet.currencies,
+  ...state.wallet,
 });
 
 export default connect(mapStateToProps)(WalletForm);
