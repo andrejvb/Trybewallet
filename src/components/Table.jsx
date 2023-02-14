@@ -13,7 +13,7 @@ class Table extends Component {
     const { expenses } = this.props;
     return (
       <table>
-        <tbody>
+        <thread>
           <tr>
             <th>Descrição</th>
             <th>Tag</th>
@@ -25,7 +25,7 @@ class Table extends Component {
             <th>Moeda de conversão</th>
             <th>Editar/Excluir</th>
           </tr>
-        </tbody>
+        </thread>
         <tbody>
           {expenses.map((despesa) => {
             const { id, description, tag, method, value, currency,
