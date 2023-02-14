@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { startFetchCurrency, startFetchRate } from '../redux/actions';
 
 class WalletForm extends Component {
@@ -114,8 +114,8 @@ class WalletForm extends Component {
 }
 
 WalletForm.propTypes = {
-  currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
-  dispatch: PropTypes.func.isRequired,
+  currencies: propTypes.arrayOf(propTypes.string).isRequired,
+  dispatch: propTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
