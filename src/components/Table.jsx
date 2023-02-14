@@ -16,6 +16,7 @@ class Table extends Component {
           <th>Editar/Excluir</th>
         </tr>
       </table>
+
     );
   }
 }

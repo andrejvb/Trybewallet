@@ -2,7 +2,6 @@ import { screen, within } from '@testing-library/react';
 import { renderWithRouterAndRedux } from './helpers/renderWith';
 import Wallet from '../pages/Wallet';
 import mockData from './helpers/mockData';
-import App from '../App';
 // import userEvent from '@testing-library/user-event';
 
 describe('Testes Wallet', () => {
