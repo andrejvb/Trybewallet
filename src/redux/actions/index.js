@@ -13,7 +13,7 @@ export const userLogin = (email) => ({
 
 export const saveCurrency = (coins) => ({
   type: CURRENCY,
-  coins,
+  coins: coins.filter((coin) => coin !== 'USDT'),
 });
 
 export const saveExpenses = (expenses) => ({
@@ -23,7 +23,6 @@ export const saveExpenses = (expenses) => ({
 
 export const startFetchCurrency = () => async (dispatch) => {
   const coins = Object.keys(await fetchCurrency());
-  coins.filter((coin) => coin !== 'USDT');
   dispatch(saveCurrency(coins));
 };
 
