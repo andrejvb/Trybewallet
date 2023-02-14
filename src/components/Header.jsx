@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 
 class Header extends Component {
   somValue = (expenses) => {
+    const zero = 0;
     if (expenses.length > 0) {
       const total = expenses.reduce(
         (acc, prev) => acc
@@ -12,7 +13,7 @@ class Header extends Component {
       );
       return total.toFixed(2);
     }
-    return 0;
+    return zero.toFixed(2);
   };
 
   render() {

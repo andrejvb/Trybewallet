@@ -6,6 +6,8 @@ export const CURRENCY = 'CURRENCY';
 
 export const EXPENSES = 'EXPENSES';
 
+export const DELETE = 'DELETE';
+
 export const userLogin = (email) => ({
   type: USER_LOGIN,
   payload: email,
@@ -19,6 +21,11 @@ export const saveCurrency = (coins) => ({
 export const saveExpenses = (expenses) => ({
   type: EXPENSES,
   expenses,
+});
+
+export const deleteExpense = (id) => ({
+  type: DELETE,
+  id,
 });
 
 export const startFetchCurrency = () => async (dispatch) => {
